@@ -1,6 +1,4 @@
 package cqs;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class IceCream {
@@ -8,31 +6,33 @@ public class IceCream {
     private int currentTemperature = 0;
     
     public static void main(String[] args) {
-        // TODO code application logic here
+      
     }
     
-    public int setTemperature(int temperature){
-        if (temperature > 10){
-            temperature = 10;
+    public void setTemperature(int temperature){    //we have changed this method
+        if (temperature > 10){                      //to a void return type, i.e.
+            temperature = 10;                       //it doesn't return anything
         }
-        
-        temperatureReadings.add(currentTemperature);
-        this.currentTemperature = temperature;
-        
-        return currentTemperature;
+        temperatureReadings.add(currentTemperature);//because it is now void, we 
+        this.currentTemperature = temperature;      //have had to remove the return
+                                                    //statement
     }
     
-    public List getTemperature(){
-        temperatureReadings.add(currentTemperature);
-        
-        if(currentTemperature > 10){
-            alert(currentTemperature);
-        }
-        return temperatureReadings; //just added return statement to stop error
+    public int getTemperature(){                    //the getTemperature method,
+        return currentTemperature;                  //ONLY returns the current temp
     }
+    
+    public void startMonitor(){                     //We have implemented a new 
+        if(currentTemperature > 10){                //method which monitors the temp
+            alert(currentTemperature);              //and calls the alert method
+        }                                           //if needed
+    }
+    
+    public List getTemperatureReadings(){           //the list only returns the 
+        return temperatureReadings;                 //returns the temperatureReadings
+        }                                           //List 
     
     public void alert(int temperature){
         System.out.println("Ice-cream machine too warm. Temperature: " + temperature);
-    }
-    
+    }   
 }
